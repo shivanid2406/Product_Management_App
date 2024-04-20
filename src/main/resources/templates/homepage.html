@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Product Homepage</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<style>
+		table {
+			border-collapse: collapse;
+			width: 100%;
+		}
+
+		th,
+		td {
+			border: 1px solid #ddd;
+			padding: 8px;
+			text-align: left;
+		}
+
+		th {
+			background-color: #f2f2f2;
+		}
+
+		tr:nth-child(even) {
+			background-color: #f2f2f2;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+
+		<div class="d-flex align-items-end justofy-content-end">
+			<a th:href="@{/logout}" class="btn btn-primary btn-sm mb-3">
+				Logout
+			</a>
+
+		</div>
+	</div>
+	<h2>Product Homepage</h2>
+	<table>
+		<thead>
+			<tr>
+				<th>Product ID</th>
+				<th>Product Name</th>
+				<th>Quantity</th>
+				<th>Price</th>
+			</tr>
+		</thead>
+		<tbody>
+
+			<tr th:each="tempProduct : ${products}">
+				<td th:text="${tempProduct.id}">123</td>
+				<td th:text="${tempProduct.productName}"></td>
+				<td th:text="${tempProduct.quantity}"></td>
+				<td th:text="${tempProduct.price}"></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+
+</html>
